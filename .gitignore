@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /bin/
 =======
+=======
+>>>>>>> 263d78196bcaf557f582ab5504ab6bae234357f6
 *.class
 
 # Mobile Tools for Java (J2ME)
@@ -13,4 +16,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+<<<<<<< HEAD
 >>>>>>> 2bf8b87952bc067d7dea09235770669760303bc0
+=======
+>>>>>>> 263d78196bcaf557f582ab5504ab6bae234357f6
