@@ -7,6 +7,6 @@ public class TestRunner {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		JarReader reader = new JarReader();
-		reader.readJarFile("C:/Users/SHANE/Desktop/workspace/OOProject/string-service.jar");
+		reader.getJar("C:/Users/SHANE/Desktop/workspace/OOProject/test.jar");
 	}
 }
