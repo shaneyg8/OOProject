@@ -4,13 +4,22 @@ import java.util.Map;
 
 /**
  * 
-* @author Shane Gleeson
-* 
-*/
+ * @author Shane Gleeson
+ *
+ */
 public class Metric {
 
 	private int inDegree;
 	private int outDegree;
+	private String className;
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
 
 	public int getInDegree() {
 		return inDegree;
@@ -25,12 +34,17 @@ public class Metric {
 		this.outDegree = outDegree;
 	}
 
-	public float getStability(){
+	public double getStability(){
 		float stability = 1f;
-		if(outDegree <= 0){
-			stability = ((float)outDegree / (float)inDegree + (float)outDegree);
+		
+		if(getOutDegree() > 0)
+		{
+			stability = ((float)getOutDegree() /( (float)getInDegree() + (float)getOutDegree()));
 		}
-
-		return stability;
+		else{
+			stability = 0f;
+		}
+		return Math.round(stability * 100d) / 100d;
+		//return stability;
 	}	
 }
