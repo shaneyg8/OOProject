@@ -57,6 +57,22 @@ public class MetricCalculator{
 			e.printStackTrace();
 		}
 	}
+	
+public Object[][] getData(){
+		
+		int i = 0;
+		Object[][] data = new Object[graph.size()][4];
+		
+		for(Metric m : graph.values()){
+			data[i][0] = m.getClassName();
+			data[i][1] = m.getInDegree();
+			data[i][2] = m.getOutDegree();
+			data[i][3] = m.getStability();
+			i++;
+		}
+		
+		return data;
+}
 
 	public void reflection(Class cls){
 		List<String> classList = new ArrayList<String>();
@@ -97,7 +113,7 @@ public class MetricCalculator{
 			}
 		}
 
-		Field[] fields = cls.getDeclaredFields();
+		Field[] fields = cls.getFields();
 
 		for(Field f : fields)
 		{
