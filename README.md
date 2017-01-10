@@ -23,3 +23,6 @@ to an object graph if necessary.
 - Click Calculate Stability
 - A pop up window will then appear of InDegree, OutDegree, Stability and the Class Names
 
+#UML
+---------
+![UML](https://github.com/shaneyg8/OOProject/blob/master/design.png)
