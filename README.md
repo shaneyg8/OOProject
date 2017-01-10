@@ -18,8 +18,8 @@ to an object graph if necessary.
 
 #Deploying
 ----------
--Run Java project in Eclipse
--When prompted browse and find your desired Jar file
--Click Calculate Stability
+- Run Java project in Eclipse
+- When prompted browse and find your desired Jar file
+- Click Calculate Stability
 - A pop up window will then appear of InDegree, OutDegree, Stability and the Class Names
 
