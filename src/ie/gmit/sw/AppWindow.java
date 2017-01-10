@@ -16,11 +16,12 @@ import javax.swing.border.BevelBorder;
 public class AppWindow {
 	private JFrame frame;
 	private String name;
+	private AppSummary as;
 
 	public AppWindow(){
 		//Create a window for the application
 		frame = new JFrame();
-		frame.setTitle("Object Oriented Programming - Software Development");
+		frame.setTitle("B.Sc. in Software Development - GMIT");
 		frame.setSize(550, 500);
 		frame.setResizable(false);
 		frame.setLayout(new FlowLayout());
@@ -64,17 +65,37 @@ public class AppWindow {
 		btnOther.setMaximumSize(new java.awt.Dimension(150, 30));
 		btnOther.setMargin(new java.awt.Insets(2, 2, 2, 2));
 		btnOther.setMinimumSize(new java.awt.Dimension(150, 30));
+
 		btnOther.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-            	System.out.println("Calculating Stability");
-                	JarReader jr = new JarReader();
-                	try {
-						jr.readJarFile(name);
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-    			}
-        });
+
+					public void actionPerformed(ActionEvent evt) {
+
+						// check if their is something entered in the filepath
+						if(txtFileName.getText().length() > 1){
+							try {
+								MetricCalculator m = new MetricCalculator(name);
+								
+								// create the summary
+		                        as = new AppSummary(frame, true);
+
+		                        // get handle on summary table model
+		                        TypeSummaryTableModel tm = as.getTableModel();
+
+		                        // add metric data into table model
+		                        tm.setTableData(m.getData());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						
+						 // make the dialog visible
+	                    as.setVisible(true);
+						}
+	                    else {
+
+							System.out.println("No jar selected");
+						} 
+			}
+		});
 		
         top.add(txtFileName);
         top.add(btnChooseFile);
@@ -89,7 +110,12 @@ public class AppWindow {
         mid.setMaximumSize(new java.awt.Dimension(500, 300));
         mid.setMinimumSize(new java.awt.Dimension(500, 300));
         
-
+        //AppSummary cc = new AppSummary(frame, true);
+       // cc.setBackground(Color.WHITE);
+       // cc.setPreferredSize(new java.awt.Dimension(300, 300));
+       // cc.setMaximumSize(new java.awt.Dimension(300, 300));
+       // cc.setMinimumSize(new java.awt.Dimension(300, 300));
+       // mid.add(cc);
 		frame.getContentPane().add(mid);
 		
         JPanel bottom = new JPanel(new FlowLayout(FlowLayout.RIGHT));

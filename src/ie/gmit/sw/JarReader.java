@@ -11,11 +11,9 @@ import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
-/**
- * 
- * @author Shane Gleeson
- *
- */
+/** 
+* @author Shane Gleeson
+*/
 
 public class JarReader {
 
@@ -23,12 +21,17 @@ public class JarReader {
 	public JarReader() {}
 
 	/**
-	 * Retrieves the jar 
-	 * 
+	 * Retrieves Jar
+	 * @return 
+	 * @throws FileNotFoundException
+	 * @throws IOException
 	 */
-	public void readJarFile(String jarFile) throws FileNotFoundException, IOException{
+	public List<Class> readJarFile(String jarFile) throws FileNotFoundException, IOException{
 
+		
 		File file  = new File(jarFile);
+		
+		//Creates a URL 
         URL url = file.toURI().toURL();
         URL[] urls = new URL[]{url};
 
@@ -47,7 +50,7 @@ public class JarReader {
 				try {
 					cls = Class.forName(name, false, cl);
 					jarContent.add(cls);
-					//System.exit(0);
+					
 				} 
 				catch (ClassNotFoundException e) {
 					System.out.println("Couldn't find class '" + name + "'");
@@ -56,7 +59,6 @@ public class JarReader {
 			}
 			next = in.getNextJarEntry();
 		}
-		new MetricCalculator(jarContent, jarFile);
-		in.close();
+		return jarContent;
 	}
 }

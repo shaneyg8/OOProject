@@ -4,9 +4,10 @@ import java.util.Map;
 
 /**
  * 
- * @author Shane Gleeson
- *
- */
+* @author Shane Gleeson
+*  Getters and Setters 
+*  Indegree & Outdegree
+*/
 public class Metric {
 
 	private int inDegree;
@@ -39,12 +40,13 @@ public class Metric {
 		
 		if(getOutDegree() > 0)
 		{
+			//Stability calculation
 			stability = ((float)getOutDegree() /( (float)getInDegree() + (float)getOutDegree()));
 		}
 		else{
 			stability = 0f;
 		}
 		return Math.round(stability * 100d) / 100d;
-		//return stability;
+		
 	}	
 }
