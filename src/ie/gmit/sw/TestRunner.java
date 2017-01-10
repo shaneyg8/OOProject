@@ -8,11 +8,10 @@ public class TestRunner {
 
     /**
      * 
-     * Starts GUI
+     * Starts GUI & Starts swing
      */
     public static void main(String[] args) {
     	
-        // Starts swing
         new AppWindow();
     }
 }

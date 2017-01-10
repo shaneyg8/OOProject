@@ -5,6 +5,11 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.table.*;
 
+/**
+ * A Dialog popup with a table 
+ * this displays the results of the stability calculation
+ */
+
 public class AppSummary extends JDialog{
 	private static final long serialVersionUID = 777L;	
 	private TypeSummaryTableModel tm = null;
@@ -20,7 +25,7 @@ public class AppSummary extends JDialog{
         super.setTitle("Summary");
         super.setResizable(true);
         
-        this.setSize(new Dimension(500, 400));
+        this.setSize(new Dimension(950, 500));
         
 		c = getContentPane();
 		c.setLayout(new FlowLayout());	
@@ -47,18 +52,18 @@ public class AppSummary extends JDialog{
 		for (int i = 0; i < table.getColumnCount(); i++){
 			column = table.getColumnModel().getColumn(i);
 			if (i == 0){
-				column.setPreferredWidth(60);
-				column.setMaxWidth(60);
-				column.setMinWidth(60);
+				column.setPreferredWidth(250);
+				column.setMaxWidth(250);
+				column.setMinWidth(250);
 			}else{
-				column.setPreferredWidth(100);
-				column.setMaxWidth(100);
-				column.setMinWidth(100);
+				column.setPreferredWidth(300);
+				column.setMaxWidth(300);
+				column.setMinWidth(300);
 			}
 		}
 
 		tableScroller = new JScrollPane(table);
-		tableScroller.setPreferredSize(new java.awt.Dimension(485, 235));
+		tableScroller.setPreferredSize(new java.awt.Dimension(800, 400));
 		tableScroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
 		tablePanel.add(tableScroller, FlowLayout.LEFT);
@@ -67,6 +72,7 @@ public class AppSummary extends JDialog{
 	private void configureButtonPanel(){
     	buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
+    	
 		//Configure the Cancel button
 		btnClose = new JButton("Close");		
 		btnClose.setToolTipText("Close this Window");

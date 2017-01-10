@@ -8,6 +8,7 @@ import java.util.Map;
 *  Getters and Setters 
 *  Indegree & Outdegree
 */
+
 public class Metric {
 
 	private int inDegree;
@@ -35,6 +36,10 @@ public class Metric {
 		this.outDegree = outDegree;
 	}
 
+	/**
+	 * Uses the inDegree and outDegree to calculate the stability.
+	 * 
+	 */
 	public double getStability(){
 		float stability = 1f;
 		

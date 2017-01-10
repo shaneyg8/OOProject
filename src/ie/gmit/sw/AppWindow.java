@@ -13,11 +13,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
 
+
 public class AppWindow {
 	private JFrame frame;
 	private String name;
 	private AppSummary as;
 
+	/**
+	 * @author Shane Gleeson
+	 * Creating a window for the application
+	 * The Size and Title are set
+	 * 
+	 */
+	
 	public AppWindow(){
 		//Create a window for the application
 		frame = new JFrame();
@@ -25,6 +33,14 @@ public class AppWindow {
 		frame.setSize(550, 500);
 		frame.setResizable(false);
 		frame.setLayout(new FlowLayout());
+		
+		/**
+		 * 
+		 * Selecting the Jar File
+		 * Browsing files to select your jar file
+		 * Setting the border width and height
+		 * 
+		 */
 		
         //The file panel will contain the file chooser
         JPanel top = new JPanel(new FlowLayout(FlowLayout.LEADING));
@@ -59,6 +75,13 @@ public class AppWindow {
 			}
         });
 		
+		/**
+		 * 
+		 * Button to calculate stability 
+		 * Performs Metric Calculator action
+		 * 
+		 */
+		
 		JButton btnOther = new JButton("Calculate Stability");
 		btnOther.setToolTipText("Calculate Stability");
 		btnOther.setPreferredSize(new java.awt.Dimension(150, 30));
@@ -69,25 +92,31 @@ public class AppWindow {
 		btnOther.addActionListener(new java.awt.event.ActionListener() {
 
 					public void actionPerformed(ActionEvent evt) {
-
-						// check if their is something entered in the filepath
+						 /**
+						 * check if their is something entered in the filepath
+						 * create the summary
+						 * get handle on summary table model
+						 * add metric data into table model
+						 */
+						
 						if(txtFileName.getText().length() > 1){
 							try {
 								MetricCalculator m = new MetricCalculator(name);
 								
-								// create the summary
 		                        as = new AppSummary(frame, true);
 
-		                        // get handle on summary table model
 		                        TypeSummaryTableModel tm = as.getTableModel();
 
-		                        // add metric data into table model
 		                        tm.setTableData(m.getData());
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
 						
-						 // make the dialog visible
+							/**
+							 * 
+							 * make the dialog visible
+							 * 
+							 */
 	                    as.setVisible(true);
 						}
 	                    else {
@@ -100,22 +129,22 @@ public class AppWindow {
         top.add(txtFileName);
         top.add(btnChooseFile);
         top.add(btnOther);
-        frame.getContentPane().add(top); //Add the panel to the window
+        frame.getContentPane().add(top); 
+        /**
+		 * Add the panel to the window
+		 */
         
         
-        //A separate panel for the programme output
+        /**
+		 * A separate panel for the programme output
+		 */
         JPanel mid = new JPanel(new FlowLayout(FlowLayout.LEADING));
         mid.setBorder(new BevelBorder(BevelBorder.RAISED));
         mid.setPreferredSize(new java.awt.Dimension(500, 300));
         mid.setMaximumSize(new java.awt.Dimension(500, 300));
         mid.setMinimumSize(new java.awt.Dimension(500, 300));
         
-        //AppSummary cc = new AppSummary(frame, true);
-       // cc.setBackground(Color.WHITE);
-       // cc.setPreferredSize(new java.awt.Dimension(300, 300));
-       // cc.setMaximumSize(new java.awt.Dimension(300, 300));
-       // cc.setMinimumSize(new java.awt.Dimension(300, 300));
-       // mid.add(cc);
+
 		frame.getContentPane().add(mid);
 		
         JPanel bottom = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -123,13 +152,9 @@ public class AppWindow {
         bottom.setMaximumSize(new java.awt.Dimension(500, 50));
         bottom.setMinimumSize(new java.awt.Dimension(500, 50));
         
-        JButton btnDialog = new JButton("Show Dialog"); //Create Quit button
-        btnDialog.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-            	//AppSummary as =  new AppSummary(frame, true);
-            	//as.show();
-			}
-        });
+        /**
+		 * Create Quit button
+		 */
         
         JButton btnQuit = new JButton("Quit"); //Create Quit button
         btnQuit.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +162,6 @@ public class AppWindow {
             	System.exit(0);
 			}
         });
-        bottom.add(btnDialog);
         bottom.add(btnQuit);
 
         frame.getContentPane().add(bottom);       
