@@ -22,7 +22,6 @@ public class JarReader {
 
 	/**
 	 * Retrieves Jar
-	 * @return 
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
@@ -31,7 +30,10 @@ public class JarReader {
 		
 		File file  = new File(jarFile);
 		
-		//Creates a URL 
+		/**
+		 * Creates a URL 
+		 */
+		
         URL url = file.toURI().toURL();
         URL[] urls = new URL[]{url};
 

@@ -22,8 +22,7 @@ public class AppWindow {
 	/**
 	 * @author Shane Gleeson
 	 * Creating a window for the application
-	 * The Size and Title are set
-	 * 
+	 * The Size and Title are set 
 	 */
 	
 	public AppWindow(){
@@ -35,11 +34,9 @@ public class AppWindow {
 		frame.setLayout(new FlowLayout());
 		
 		/**
-		 * 
 		 * Selecting the Jar File
 		 * Browsing files to select your jar file
 		 * Setting the border width and height
-		 * 
 		 */
 		
         //The file panel will contain the file chooser
